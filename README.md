@@ -86,10 +86,10 @@ user-auth-module/
 
 ── config/ db.js
 
-── server.js
-── .env
-── .gitignore
-── README.md
+|── server.js
+|── .env
+|── .gitignore
+|── README.md
 }
 
 
