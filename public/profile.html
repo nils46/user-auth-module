@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2>My Profile</h2>
+
+    <div id="profile" class="profile-info"></div>
+
+    <a href="/edit-profile.html">Edit Profile</a>
+    <a href="/change-password.html">Change Password</a>
+    <a href="/api/auth/logout">Logout</a>
+  </div>
+
+  <script>
+    fetch("/api/auth/profile")
+      .then(res => res.json())
+      .then(user => {
+        document.getElementById("profile").innerHTML = `
+          <p><b>Name:</b> ${user.name}</p>
+          <p><b>Email:</b> ${user.email}</p>
+          <p><b>Phone:</b> ${user.phone}</p>
+          <p><b>Age:</b> ${user.age}</p>
+          <p><b>Gender:</b> ${user.gender}</p>
+          <p><b>Address:</b> ${user.address}</p>
+        `;
+      });
+  </script>
+</body>
+
+</html>
