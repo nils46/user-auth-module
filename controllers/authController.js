@@ -70,7 +70,7 @@ exports.login = async (req, res) => {
 exports.viewProfile = async (req, res) => {
   try {
     const user = await User.findById(req.session.userId)
-      .select("-password"); // ❌ do not send password
+      .select("-password"); 
 
     if (!user) {
       return res.send("User not found");
